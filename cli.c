@@ -26,6 +26,7 @@ INCLUDES
 #include "stm32f3_Flash.h"
 #include "stm32f3_Watchdog.h"
 #include "stm32f3_DMA.h"
+#include "stm32f3_discovery_board.h"
 
 /*******************************************************************************
 
@@ -55,6 +56,7 @@ static void     cli_erase_flash(const uint8_t * cli_string);
 static void     cli_watchdog_trigger(const uint8_t * cli_string);
 static void     cli_memset(const uint8_t * cli_string);
 static void     cli_memcopy(const uint8_t * cli_string);
+static void     cli_temperature(const uint8_t * cli_string);
 static uint8_t  cli_list_init(uint8_t index, const uint8_t * string, uint8_t size, const uint8_t * help, CLICMDFuncPtr fptr);
 
 static uint8_t  is_dec_num(uint8_t src);
@@ -501,6 +503,23 @@ void cli_memcopy(const uint8_t * cli_string){
 	return;
 }
 
+/*******************************************************************************
+This function parses the input string for a 1 byte dma channel, 4 bytes 
+source address, 4 bytes destination address and 2 bytes count of transfers
+
+\param[in] cli_string the string to parse for command information
+
+\retval None
+
+\warning There is NO checking on the pointer field.  
+
+******************************************************************************/
+void cli_temperature(const uint8_t * cli_string){
+
+    printf("Current Temperature: %d", Get_temperature());    
+	return;
+}
+
 
 /*******************************************************************************
 This function parses the input string for a 32 bit pointer and prints the data
@@ -713,6 +732,7 @@ void CLI_Init(void){
 	cli_list_init(4,  "watchdog",       8, "Triggers watchdog reset : watchdog", &cli_watchdog_trigger);
 	cli_list_init(5,  "memset",         6, "Write set value to memory range specified by count: memset", &cli_memset);
 	cli_list_init(6,  "memcopy",        7, "Copies src data to dst specified by count : memset", &cli_memcopy);
+	cli_list_init(7,  "temperature",   11, "Displays the current temperature : temperature", &cli_temperature);
 	cli_list_init(CLI_MAX_COMMANDS-1, ASCII_NULL,  0, ASCII_NULL, NULL);  //ALWAYS THE LAST ONE!
 
 	//

@@ -470,6 +470,41 @@
               <FileType>1</FileType>
               <FilePath>..\STM32F\src\system_stm32f30x.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f30x_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F\src\stm32f30x_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f30x_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F\src\stm32f30x_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f30x_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F\src\stm32f30x_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f30x_rcc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F\src\stm32f30x_rcc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f30x_syscfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F\src\stm32f30x_syscfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f3_discovery_lsm303dlhc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F\src\stm32f3_discovery_lsm303dlhc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f3_discovery_board.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\stm32f3_discovery_board.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

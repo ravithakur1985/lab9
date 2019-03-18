@@ -14,10 +14,14 @@
 #include "cli.h"
 #include "stm32f3_Watchdog.h"
 #include "stm32f3_DMA.h"
+#include "stm32f3_discovery_board.h"
+#include "stm32f3_discovery_lsm303dlhc.h"
 #include "stdio.h"
 
 
 int main (void){
+	
+	LSM303DLHCMag_InitTypeDef LSM303DLHC_InitStruct;
 	
 	// running the init commands	
 	LEDS_Init();
@@ -26,7 +30,10 @@ int main (void){
 	TIM2_Init();
 	UART_Init();
 	DMA_Start();
-	CLI_Init();
+	CLI_Init();	
+	
+	LSM303DLHC_InitStruct.Temperature_Sensor = LSM303DLHC_TEMPSENSOR_ENABLE;
+	LSM303DLHC_MagInit(&LSM303DLHC_InitStruct);
 	
 	if (Watchdog_POR()){
 		printf("Watchdog Reset\n");
